@@ -1,0 +1,17 @@
+<div id="<%= dom_id line_item %>" class="grid gap-1 grid-cols-4">
+  <p>
+    <%= line_item.label %>
+  </p>
+
+  <p>
+    <%= l(line_item.date, format: :month_day_year) %>
+  </p>
+
+  <p>
+    <%= number_to_currency(line_item.amount) %>
+  </p>
+
+  <p>
+    <%= line_item.state %>
+  </p>
+</div>

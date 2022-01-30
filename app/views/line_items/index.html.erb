@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="font-bold text-4xl mb-5">Line items</h1>
+
+<%= turbo_frame_tag 'line_items' do %>
+  <%= render @line_items %>
+
+  <%= turbo_frame_tag 'new_line_item' do %>
+    <%= link_to "New line item", new_line_item_path %>
+  <% end %>
+<% end %>
+
+<div class="font-bold">Total: <%= number_to_currency(@total) %></div>
