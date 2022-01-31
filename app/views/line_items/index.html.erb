@@ -1,13 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1 class="font-bold text-4xl mb-5">Line items</h1>
+<h1 class="font-bold text-4xl mb-5">January 2022</h1>
 
 <%= turbo_frame_tag 'line_items' do %>
-  <%= render @line_items %>
+  <div class="mb-4">
+    <%= render @line_items %>
+  </div>
+
+  <div class="font-bold mb-10">Total: <%= number_to_currency(@total) %></div>
 
   <%= turbo_frame_tag 'new_line_item' do %>
-    <%= link_to "New line item", new_line_item_path %>
+    <%= link_to "New line item", new_line_item_path, class: 'button' %>
   <% end %>
 <% end %>
-
-<div class="font-bold">Total: <%= number_to_currency(@total) %></div>

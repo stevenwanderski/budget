@@ -1,17 +1,20 @@
-<div id="<%= dom_id line_item %>" class="grid gap-1 grid-cols-4">
-  <p>
-    <%= line_item.label %>
-  </p>
+<%= turbo_frame_tag dom_id(line_item) do %>
+  <div class="grid gap-1 grid-cols-5 border-b border-gray-200 text-sm py-1">
+    <div>
+      <%= line_item.label %>
+    </div>
 
-  <p>
-    <%= l(line_item.date, format: :month_day_year) %>
-  </p>
+    <div>
+      <%= l(line_item.date, format: :month_day_year) %>
+    </div>
 
-  <p>
-    <%= number_to_currency(line_item.amount) %>
-  </p>
+    <div>
+      <%= number_to_currency(line_item.amount) %>
+    </div>
 
-  <p>
-    <%= line_item.state %>
-  </p>
-</div>
+    <div class="flex gap-4">
+      <%= line_item.state %>
+      <%= render 'line_items/line_item/toggle_state', line_item: line_item %>
+    </div>
+  </div>
+<% end %>

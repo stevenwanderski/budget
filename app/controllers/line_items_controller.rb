@@ -3,7 +3,7 @@ class LineItemsController < ApplicationController
 
   # GET /line_items
   def index
-    @line_items = LineItem.all
+    @line_items = LineItem.all.order(date: :asc, label: :asc)
     @total = @line_items.where(state: 'unpaid').sum(:amount)
   end
 
@@ -44,6 +44,18 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     redirect_to line_items_url, notice: "Line item was successfully destroyed."
+  end
+
+  def mark_as_paid
+    @line_item = LineItem.find(params[:line_item_id])
+    @line_item.update!(state: 'paid')
+    redirect_to line_items_path
+  end
+
+  def mark_as_unpaid
+    @line_item = LineItem.find(params[:line_item_id])
+    @line_item.update!(state: 'unpaid')
+    redirect_to line_items_path
   end
 
   private

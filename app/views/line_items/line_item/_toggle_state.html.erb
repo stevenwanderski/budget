@@ -1,0 +1,13 @@
+<% if line_item.state == 'unpaid' %>
+  <%= link_to 'Mark as paid',
+      line_item_mark_as_paid_path(line_item),
+      class: 'text-blue-500',
+      data: { turbo_frame: 'line_items' }
+  %>
+<% else %>
+  <%= link_to 'Mark as unpaid',
+      line_item_mark_as_unpaid_path(line_item),
+      class: 'text-blue-500',
+      data: { turbo_frame: 'line_items' }
+  %>
+<% end %>

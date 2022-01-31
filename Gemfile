@@ -12,6 +12,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "bootsnap", require: false
 gem "awesome_print"
+gem "tailwindcss-rails", "~> 2.0"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -31,5 +32,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "tailwindcss-rails", "~> 2.0"
